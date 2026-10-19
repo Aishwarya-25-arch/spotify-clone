@@ -258,21 +258,55 @@ background-color: #2e2c2cb3;
 .progress-bar{
     width: 70%;
     appearance: none;
+    -webkit-appearance: none;
     background-color: transparent;
     cursor: pointer;
+    margin: 0 0.5rem;
+    --progress: 0%;
 }
 .progress-bar::-webkit-slider-runnable-track {
     height: 0.2rem;
-    background-color: #ddd;
+    background: linear-gradient(to right, #1bd760 var(--progress, 0%), #ddd var(--progress, 0%));
     border-radius: 100px;
 }
 .progress-bar::-webkit-slider-thumb {
     appearance: none;
+    -webkit-appearance: none;
     height: 1rem;
     width: 1rem;
     background-color: #1bd760;
-    border-radius: 50% ;
+    border-radius: 50%;
     margin-top: -6px;
+    margin-left: 0;
+    left: 0;
+    transform: none;
+    border: none;
+    cursor: pointer;
+}
+.progress-bar::-moz-range-track {
+    height: 0.2rem;
+    background: linear-gradient(to right, #1bd760 var(--progress, 0%), #ddd var(--progress, 0%));
+    border-radius: 100px;
+}
+.progress-bar::-moz-range-thumb {
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    background-color: #1bd760;
+    border-radius: 50%;
+    border: none;
+    margin-left: 0;
+    transform: none;
+    cursor: pointer;
+}
+/* Ensure custom thumb/progress elements have zeroed initial offsets */
+.progress-thumb, .thumb {
+    left: 0;
+    margin-left: 0;
+    transform: none;
+}
+.progress-fill, .progress {
+    width: 0%;
 }
 .footer-container {
     margin-top: 30px;
